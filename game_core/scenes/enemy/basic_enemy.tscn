@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcqt8lvfom0dk"]
+
+[ext_resource type="Texture2D" uid="uid://c1dopy5lgahuc" path="res://scenes/enemy/tile_0124.png" id="2_xg81g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_obku4"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_og6du"]
+radius = 5.0
+
+[node name="GDBaseEnemy" type="GDBaseEnemy" groups=["enemy"]]
+collision_layer = 8
+collision_mask = 9
+motion_mode = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_obku4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xg81g")
+offset = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_og6du")
