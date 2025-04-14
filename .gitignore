@@ -1,0 +1,20 @@
+*.obj
+game_core/build
+game_core/bin
+.cache
+
+# Godot-specific
+.import/
+export.cfg
+export_presets.cfg
+.godot/
+mono/
+
+# Compiled C++/GDExtension files
+*.so
+*.dll
+*.dylib
+*.exe
+
+# Build
+bin/
