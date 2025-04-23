@@ -2,42 +2,23 @@
 import os
 import sys
 
+# 导入godot-cpp
 env = SConscript("godot-cpp/SConstruct")
 
-# For reference:
-# - CCFLAGS are compilation flags shared between C and C++
-# - CFLAGS are for C-specific compilation flags
-# - CXXFLAGS are for C++-specific compilation flags
-# - CPPFLAGS are for pre-processor flags
-# - CPPDEFINES are for pre-processor defines
-# - LINKFLAGS are for linking flags
+build_dir = "build/objs"
+if not os.path.exists(build_dir):
+    os.makedirs(build_dir)
 
-# tweak this if you want to use different folders, or more folders, to store your source code in.
-env.Append(CPPPATH=["src/","src/gd_enemy","src/gd_player"])
+#把目标生成到build_dir
+env.VariantDir(build_dir,".",duplicate=0)
+
+# 增加源代码文件
+env.Append(CPPPATH=["src/","src/enemy","src/player"])
 sources = Glob("src/*.cc")+ Glob("src/**/*.cc") 
+#设置共享库
+library = env.SharedLibrary(
+    "game_core/bin/libgdplayer{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
+    source=[os.path.join(build_dir, os.path.relpath(str(src), ".")) for src in sources],
 
-if env["platform"] == "macos":
-    library = env.SharedLibrary(
-        "game_core/bin/libgdplayer.{}.{}.framework/libplayer.{}.{}".format(
-            env["platform"], env["target"], env["platform"], env["target"]
-        ),
-        source=sources,
-    )
-elif env["platform"] == "ios":
-    if env["ios_simulator"]:
-        library = env.StaticLibrary(
-            "game_core/bin/libgdplayer.{}.{}.simulator.a".format(env["platform"], env["target"]),
-            source=sources,
-        )
-    else:
-        library = env.StaticLibrary(
-            "game_core/bin/libgdplayer.{}.{}.a".format(env["platform"], env["target"]),
-            source=sources,
-        )
-else:
-    library = env.SharedLibrary(
-        "game_core/bin/libgdplayer{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
-        source=sources,
-    )
-
+)
 Default(library)
