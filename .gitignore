@@ -18,3 +18,9 @@ mono/
 
 # Build
 bin/
+tools/
+.sconsign.dblite
+compile_commands.json
+
+*.log
+game_core/addons
