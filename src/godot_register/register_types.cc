@@ -1,3 +1,6 @@
+/*
+godot注册类
+*/
 #include "register_types.h"
 #include "gdextension_interface.h"
 #include "godot_cpp/core/defs.hpp"

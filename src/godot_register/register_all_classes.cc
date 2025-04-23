@@ -1,8 +1,8 @@
 #include "register_all_classes.h"
 
-#include "base_enemy.h"
-#include "gd_enemy/enemy_manager.h"
-#include "gd_player.h"
+#include "enemy/base_enemy.h"
+#include "enemy/enemy_manager.h"
+#include "player/player.h"
 
 namespace godot {
 

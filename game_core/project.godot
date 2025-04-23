@@ -13,7 +13,6 @@ config_version=5
 config/name="mybrato"
 run/main_scene="uid://08vpotkxxsey"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
 
 [display]
 
@@ -26,6 +25,8 @@ window/stretch/mode="viewport"
 [editor]
 
 movie_writer/movie_file="C:/Users/fengl/Videos/mybrato/video.avi"
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [global_group]
 

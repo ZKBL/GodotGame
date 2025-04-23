@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://uorem33ap1p"]
 
-[ext_resource type="Texture2D" uid="uid://8068xd03gyxd" path="res://scenes/ability/sword_ability/sword.png" id="1_upg5g"]
+[ext_resource type="Texture2D" uid="uid://8068xd03gyxd" path="res://resources/ability/sword/sword.png" id="1_upg5g"]
 
 [sub_resource type="Animation" id="Animation_abpad"]
 length = 0.001

@@ -13,7 +13,7 @@ func on_timer_timeout():
 	var enemies = get_tree().get_nodes_in_group("enemy").filter(func(enemy:Node2D):
 		return enemy.global_position.distance_squared_to(player.global_position) < pow(max_ranger,2)
 	)
-	if enemies.size() ==0:
+	if enemies.size() <2:
 		return 
 	enemies.sort_custom(func(a:Node2D,b:Node2D): 
 		var a_distance = a.global_position.distance_squared_to(player.global_position)
@@ -22,7 +22,7 @@ func on_timer_timeout():
 	)
 	var sword_instance = sword_ability.instantiate() as Node2D	
 	player.get_parent().add_child(sword_instance)
-	sword_instance.global_position = enemies[0].global_position
+	sword_instance.global_position = enemies[1].global_position
 	sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0,TAU))*4
 	
 	var enemy_direction= enemies[0].global_position - sword_instance.global_position
