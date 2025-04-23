@@ -23,4 +23,3 @@ func on_timer_timeout():
 	var wave_instance = wave_ability.instantiate() as Node2D
 	player.get_parent().add_child(wave_instance)
 	wave_instance.global_position = enemies[0].global_position
-	wave_instance

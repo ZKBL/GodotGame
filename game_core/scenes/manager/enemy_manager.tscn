@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://ce6u1rfjvnidl"]
+[gd_scene load_steps=2 format=3 uid="uid://ce6u1rfjvnidl"]
 
-[node name="EnemyManager" type="Node"]
+[ext_resource type="PackedScene" uid="uid://bcqt8lvfom0dk" path="res://scenes/enemy/basic_enemy.tscn" id="1_jybml"]
+
+[node name="EnemyManager" type="EnemyManager"]
+enemy_scene = ExtResource("1_jybml")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
